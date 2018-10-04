@@ -1,0 +1,36 @@
+SELECT
+  E.FirstName || ' ' || E.LastName AS Employee,
+  COUNT(E.EmployeeId) AS "Number of Customers"
+FROM Customer AS C
+JOIN Employee AS E
+  ON C.SupportRepId = E.EmployeeId
+GROUP BY 1;
+
+
+SELECT
+  G.Name AS "Genre Name",
+  COUNT(T.TrackId) AS "Number of Tracks"
+FROM Track AS T
+JOIN Genre AS G
+  ON T.GenreId = G.GenreId
+GROUP BY 1;
+
+
+
+SELECT
+  MT.Name AS "Media Type Name",
+  COUNT(T.TrackId) AS "Number of Tracks"
+FROM Track AS T
+JOIN MediaType AS MT
+  ON T.GenreId = MT.MediaTypeId
+GROUP BY 1;
+
+
+
+SELECT
+  P.Name AS "Playlist Name",
+  COUNT(PT.TrackId) AS "Number of Tracks"
+FROM Playlist AS P
+JOIN PlaylistTrack AS PT
+  ON P.PlaylistId = PT.PlaylistId
+GROUP BY 1;
